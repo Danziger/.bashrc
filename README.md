@@ -1,5 +1,5 @@
-`.profile-n-related-stuff`
-==========================
+`.profile` and stuff
+====================
 
 The title says it all...
 
