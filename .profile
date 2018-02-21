@@ -14,6 +14,8 @@ export NVM_DIR="$HOME/.nvm"
 
 export JAVA_HOME=`/usr/libexec/java_home`
 
+PATH=$PATH:~/Users/danielgamezfranco/Dev/apache-maven-3.5.2/bin
+
 
 # COLORS:
 
