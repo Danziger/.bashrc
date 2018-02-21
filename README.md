@@ -1,5 +1,5 @@
-`.bashrc`
-=========
+`.profile`
+==========
 
 The title says it all...
 
