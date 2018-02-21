@@ -30,5 +30,6 @@ export PS1="\W \[\033[38;5;11m\]➜\[$(tput sgr0)\]\[\033[38;5;15m\]  \[$(tput s
 
 alias cls="clear"
 alias lc="clear && pwd && echo && ls && echo"
-alias brc="vim ~/.bashrc"
-alias edit="brackets"
+alias cshrc="atom ~/.bashrc"
+alias cp="atom ~/.profile"
+alias edit="atom"
