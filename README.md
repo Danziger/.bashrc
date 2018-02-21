@@ -1,5 +1,5 @@
-.bashrc
-=======
+`.bashrc`
+=========
 
 The title says it all...
 
