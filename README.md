@@ -1,4 +1,4 @@
-`.profile` and stuff
+`.bash` and stuff
 ====================
 
 The title says it all...
