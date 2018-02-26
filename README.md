@@ -1,9 +1,17 @@
-`.bash` and stuff
+`.bashrc` and stuff
 ====================
 
 The title says it all...
 
-`.profile` is there in a separated file and "stuff" is below:
+`.bashrc` is there in a separated file.
+
+Same goes for `.bash_profile`, that just points to `.bashrc` like so:
+
+    if [ -f ~/.bashrc ]; then 
+        source ~/.bashrc 
+    fi
+
+The rest of the stuff is below:
 
 
 Stuff
