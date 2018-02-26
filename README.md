@@ -19,7 +19,8 @@ The rest of the stuff is below:
 TO DO
 =====
 
-- [ ] Document features.
+- [ ] Document features.
+
 - [ ] Handle TODOs on the code.
 
 
