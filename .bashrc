@@ -23,6 +23,13 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 
+# NATIVESCRIPT TNS COMPLETITION:
+
+if [ -f /Users/danielgamezfranco/.tnsrc ]; then 
+    source /Users/danielgamezfranco/.tnsrc 
+fi
+
+
 # COLORS:
 
 export CLICOLOR=1
