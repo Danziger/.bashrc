@@ -33,6 +33,7 @@ Development
 - Python 2 & 3
 - Maven
 - MongoDB
+- XCode
 
 
 Browsers
