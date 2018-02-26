@@ -11,6 +11,8 @@ Same goes for `.bash_profile`, that just points to `.bashrc` like so:
         source ~/.bashrc 
     fi
 
+Why? See https://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment
+
 The rest of the stuff is below:
 
 
