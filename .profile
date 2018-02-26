@@ -10,6 +10,13 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+# NPM stuff:
+# Aliases to enable/disable the .npmrc I have for the office:
+
+alias homenpm="mv ~/.npmrc ~/.npmrc1"
+alias worknpm="mv ~/.npmrc1 ~/.npmrc"
+
+
 # JAVA/MAVEN:
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Use -v X.Y in case you installed multiple versions.
