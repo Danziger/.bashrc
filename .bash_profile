@@ -3,4 +3,4 @@ if [ -f ~/.bashrc ]; then
 fi
 
 # Use echo $BASH_CONF to know which config are we using:
-export BASH_CONF="bash_profile"
+export BASH_CONF=".bash_profile"
