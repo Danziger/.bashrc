@@ -15,7 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 
 alias homenpm="mv ~/.npmrc ~/.npmrc1 && echo \"HOME: .npmrc disabled.\""
 alias worknpm="mv ~/.npmrc1 ~/.npmrc && echo \"WORK: .npmrc enabled.\""
-alias whichnpm="[ -f ~/.npmrc ] && echo \"WORK: .npmrc enabled.\" || echo \"HOME: .npmrc disabled.\""
+alias whichnpm="[ -f ~/.npmrc ] && echo \"WORK: .npmrc enabled. Use homnpm to disable it.\" || echo \"HOME: .npmrc disabled. Use worknpm to enable it.\""
 
 
 # JAVA/MAVEN:
