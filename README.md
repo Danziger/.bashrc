@@ -21,7 +21,7 @@ TO DO
 
 - [ ] Handle TODOs on the code.
 
-- Document features.
+- [ ] Document features.
 
 
 Stuff
