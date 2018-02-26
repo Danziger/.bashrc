@@ -1,8 +1,3 @@
-# echo $BASH_CONF to know which config are we using:
-
-export BASH_CONF="profile"
-
-
 # NVM stuff:
 
 export NVM_DIR="$HOME/.nvm"
@@ -46,3 +41,7 @@ alias lc="clear && pwd && echo && ls && echo"
 alias cshrc="atom ~/.bashrc"
 alias cp="atom ~/.profile"
 alias edit="atom"
+
+
+# Use echo $BASH_CONF to know which config are we using:
+export BASH_CONF="bashrc"
