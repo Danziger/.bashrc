@@ -19,6 +19,7 @@ IDEs & Code Editors
 - WebStorm
 - PyCharm
 - IntelliJ
+- Android Studio
 
 
 Development
@@ -31,6 +32,7 @@ Development
 - NVM
 - Python 2 & 3
 - Maven
+- MongoDB
 
 
 Browsers
@@ -64,6 +66,7 @@ Misc.
 
 - Dropbox
 - Spotify
+- TunnelBlick
 
 
 Having trouble?
