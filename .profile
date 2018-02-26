@@ -15,6 +15,7 @@ export NVM_DIR="$HOME/.nvm"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Use -v X.Y in case you installed multiple versions.
 
 PATH=$PATH:~/Dev/apache-maven-3.5.2/bin
+PATH=$PATH:~/Dev/android/tools
 
 
 # COLORS:
