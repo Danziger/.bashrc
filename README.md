@@ -14,6 +14,20 @@ Same goes for `.bash_profile`, that just points to `.bashrc` like so:
 The rest of the stuff is below:
 
 
+TO DO
+=====
+
+[] Be able to switch between work and home `.gitconfig`.
+
+[] Be able to switch between work and home `.npmrc` (instead of enabling or disabling the one for work).
+
+[] Alias / function to print all the work/home options and the `BASH_CONF` enviroment variable.
+
+[] Alias to quickly resource bashrc.
+
+[] Be able to swtich beteen more than work/home variations.
+
+
 Stuff
 =====
 
