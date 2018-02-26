@@ -38,8 +38,10 @@ export PS1="\W \[\033[38;5;11m\]➜\[$(tput sgr0)\]\[\033[38;5;15m\]  \[$(tput s
 
 alias cls="clear"
 alias lc="clear && pwd && echo && ls && echo"
-alias editbrc="atom ~/.bashrc"
 alias edit="atom"
+
+alias brce="atom ~/.bashrc" # .bashrc edit
+alias brcr="source ~/.bashrc" # .bashrc re-source
 
 
 # Use echo $BASH_CONF to know which config are we using:
