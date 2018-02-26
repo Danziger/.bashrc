@@ -13,8 +13,9 @@ export NVM_DIR="$HOME/.nvm"
 # NPM stuff:
 # Aliases to enable/disable the .npmrc I have for the office:
 
-alias homenpm="mv ~/.npmrc ~/.npmrc1"
-alias worknpm="mv ~/.npmrc1 ~/.npmrc"
+alias homenpm="mv ~/.npmrc ~/.npmrc1 && echo \"HOME: .npmrc disabled.\""
+alias worknpm="mv ~/.npmrc1 ~/.npmrc && echo \"WORK: .npmrc enabled.\""
+alias whichnpm="[ -f ~/.npmrc ] && echo \"WORK: .npmrc enabled.\" || echo \"HOME: .npmrc disabled.\""
 
 
 # JAVA/MAVEN:
