@@ -27,7 +27,7 @@ TO DO
 
 - [ ] Alias to quickly resource bashrc.
 
-- [ ] Be able to swtich beteen more than work/home variations.
+- [ ] Be able to swtich between more than work/home variations.
 
 
 Stuff
