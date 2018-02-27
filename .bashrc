@@ -1,3 +1,11 @@
+# COLORS:
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+WHITE='\033[1;37m'
+NC='\033[0m' # No Color
+
+
 # NVM stuff:
 
 export NVM_DIR="$HOME/.nvm"
@@ -55,10 +63,6 @@ configs=(".npmrc" ".gitconfig")
 default="work"
 file=~/.whereami
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-WHITE='\033[1;37m'
-NC='\033[0m' # No Color
 
 # Switch location:
 function go() {
