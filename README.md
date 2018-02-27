@@ -27,6 +27,8 @@ TO DO
 
 - [ ] Do the same for maven `settings.xml`.
 
+- [ ] Highlight "work" (blue) or "home" (green) and mave also change prompt!
+
 
 Stuff
 =====
