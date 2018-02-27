@@ -23,6 +23,9 @@ TO DO
 
 - [ ] Handle TODOs on the code.
 
+- [ ] Print current git user.
+
+- [ ] Do the same for maven `settings.xml`.
 
 
 Stuff
