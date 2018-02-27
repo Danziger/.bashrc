@@ -19,15 +19,17 @@ The rest of the stuff is below:
 TO DO
 =====
 
-- [ ] Document features.
+- [ ] *BUG* - Change to absolute paths so that it works on integrated terminals like the one in VSCode.
 
-- [ ] Handle TODOs on the code.
+- [ ] *BUG* - Handle TODOs on the code.
 
-- [ ] Print current git user and NPM version (`nvm current`).
+- [ ] *DOC* - Document features.
 
-- [ ] Do the same for maven `settings.xml`.
+- [ ] *FT* - Print current git user and NPM version (`nvm current`).
 
-- [ ] Highlight "work" (blue) or "home" (green) and mave also change prompt!
+- [ ] *FT* - Do the same for maven `settings.xml`.
+
+- [ ] *FT* - Highlight "work" (blue) or "home" (green) and mave also change prompt!
 
 
 Stuff
