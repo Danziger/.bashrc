@@ -1,8 +1,13 @@
 # COLORS:
-
+# See http://shitwefoundout.com/wiki/Bash_color#High_Intensity
+# HI = High Intensity
+# B = Bold
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 WHITE='\033[1;37m'
+HIB_YELLOW='\033[1;93m'
+HIB_CYAN='\033[1;96m'
+HIB_BLUE='\033[1;94m'
 NC='\033[0m' # No Color
 
 
@@ -25,22 +30,22 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # NATIVESCRIPT TNS COMPLETITION:
 
-if [ -f /Users/danielgamezfranco/.tnsrc ]; then
-    source /Users/danielgamezfranco/.tnsrc
+if [ -f ~/.tnsrc ]; then
+    source ~/.tnsrc
 fi
 
 
 # COLORS:
 
 export CLICOLOR=1
-export LSCOLORS=ExFxCxDxBxegedabagacad
+export LSCOLORS=GxFxCxDxBxegedabagacad
 export GREP_OPTIONS='--color=auto'
 
 
 # PROMPT:
 
-export PS1="\W \[\033[38;5;11m\]➜\[$(tput sgr0)\]\[\033[38;5;15m\]  \[$(tput sgr0)\]"
-
+# export PS1="\W \[\033[38;5;11m\]➜\[$(tput sgr0)\]\[\033[38;5;15m\]  \[$(tput sgr0)\]"
+export PS1="${WHITE}\W \[${HTB_YELLOW}\]➜  ${NC}"
 
 # ALIASES:
 
@@ -52,6 +57,11 @@ alias brce="atom ~/.bashrc" # .bashrc edit
 alias brcr="source ~/.bashrc" # .bashrc re-source
 
 
+# WORK:
+# For work-related stuff that might change occasionally and/or should be left
+# out of this repo:
+source ~/.work.bash
+
 # Use echo $BASH_CONF to know which config are we using:
 export BASH_CONF=".bashrc"
 
@@ -59,10 +69,13 @@ export BASH_CONF=".bashrc"
 # CONFIG SWITCHER:
 # TODO: Move this to its own file.
 
-configs=(".npmrc" ".gitconfig")
+configs=("~/.npmrc" "~/.gitconfig")
 default="work"
-file=~/.whereami
+whereami=~/.whereami
 
+# TODO: Add a color indicator on the cursor
+# declare -A config_colors
+# config_colors=([work]=$HIB_YELLOW [home]=$HIB_BLUE)
 
 # Switch location:
 function go() {
@@ -70,20 +83,20 @@ function go() {
     # to it with the original name.
 
     current=$1
-    echo "$current" > $file
+    echo "$current" > $whereami
 
-    echo -e "\nGoing to $current...\n"
+    echo -e "\nGoing to ${WHITE}$current${NC}...\n"
 
     for base in "${configs[@]}" ; do
         file="$base-$current"
 
-        if [ -f $file ] ; then
-            if [ -L $base ] ; then
-                # If the symlink already exists, update it:
-                ln -sf $file $base
+        if [ -f "`eval echo ${file//>}`" ] ; then
+            if [ -L "`eval echo ${base//>}`" ] ; then
+                # If the symlink already exists, update iy:
+                ln -sf "`eval echo ${file//>}`" "`eval echo ${base//>}`"
             else
                 # Otherwise, create a new one:
-                ln -s $file $base
+                ln -s "`eval echo ${file//>}`" "`eval echo ${base//>}`"
             fi
 
             echo -e "  ${GREEN}✓${NC} ${WHITE}$base${NC}  ➜  ${WHITE}$file${NC} ok."
@@ -99,17 +112,25 @@ function go() {
 
 # Print where you currently are and all the option you have available:
 function lost() {
-    echo -e "\nCurrently at $current.\n"
+    echo -e "\nCurrently at ${WHITE}$current${NC}.\n"
 
     # TODO Print configurable files with their variations and possible locations.
 
     for base in "${configs[@]}" ; do
-        if [ -f $base ] ; then
+        if [ -f "`eval echo ${base//>}`" ] ; then
             echo -e "  ${GREEN}✓${NC} ${WHITE}$base${NC} is there."
         else
             echo -e "  ${RED}×${NC} ${WHITE}$base${NC} not there."
         fi
     done
+
+    # TODO: Put this on the same line
+    # See: https://stackoverflow.com/questions/2575037/how-to-get-the-cursor-position-in-bash
+    name=$(git config user.name)
+    email=$(git config user.email)
+    npm=$(nvm current)
+
+    echo -e "\n  GIT $name - $email  |  NPM: $npm"
 
     echo ""
 }
@@ -136,10 +157,10 @@ lc
 echo -e "Using ${WHITE}$BASH_CONF${NC}!"
 
 # Load the location from $file if it exists or create it (empty):
-if [ -f $file ] ; then
-    current=$( < $file)
+if [ -f $whereami ] ; then
+    current=$( < $whereami)
 else
-    touch $file
+    touch $whereami
 fi
 
 # TODO: Run check
