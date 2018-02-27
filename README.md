@@ -23,7 +23,7 @@ TO DO
 
 - [ ] Handle TODOs on the code.
 
-- [ ] Print current git user.
+- [ ] Print current git user and NPM version (`nvm current`).
 
 - [ ] Do the same for maven `settings.xml`.
 
