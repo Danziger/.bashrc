@@ -19,17 +19,15 @@ The rest of the stuff is below:
 TO DO
 =====
 
-- [ ] *BUG* - Change to absolute paths so that it works on integrated terminals like the one in VSCode.
+- [ ] *FT* - Upgrade to bash v4: https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx
 
-- [ ] *BUG* - Handle TODOs on the code.
+- [ ] *FT* - Highlight "work" (blue) or "home" (green) and mave also change prompt!
 
 - [ ] *DOC* - Document features.
 
-- [ ] *FT* - Print current git user and NPM version (`nvm current`).
-
 - [ ] *FT* - Do the same for maven `settings.xml`.
 
-- [ ] *FT* - Highlight "work" (blue) or "home" (green) and mave also change prompt!
+- [ ] *BUG* - Handle TODOs on the code.
 
 
 Stuff
@@ -46,6 +44,7 @@ IDEs & Code Editors
 - PyCharm
 - IntelliJ
 - Android Studio
+- XCode
 
 
 Development
@@ -59,7 +58,6 @@ Development
 - Python 2 & 3
 - Maven
 - MongoDB
-- XCode
 
 
 Browsers
