@@ -79,7 +79,7 @@ function go() {
 
         if [ -f $file ] ; then
             if [ -L $base ] ; then
-                # If the symlink already exists, update iy:
+                # If the symlink already exists, update it:
                 ln -sf $file $base
             else
                 # Otherwise, create a new one:
