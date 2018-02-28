@@ -92,6 +92,7 @@ Misc.
 - Dropbox
 - Spotify
 - TunnelBlick
+- Avast Security
 
 
 Having trouble?
