@@ -102,16 +102,16 @@ FAQ & Troubleshooting
 
 **👉 This is not doing anything.**
 
-- Have you created both a `.bashrc` and a `.bash_profile` files with the right content?
+  Have you created both a `.bashrc` and a `.bash_profile` files with the right content?
 
-- Otherwise, see https://superuser.com/questions/320065/bashrc-not-sourced-in-iterm-mac-os-x.
+  Otherwise, see https://superuser.com/questions/320065/bashrc-not-sourced-in-iterm-mac-os-x.
 
 **👉 How I can change the colors/formatting you use?**
 
-- See https://misc.flogisoft.com/bash/tip_colors_and_formatting.
+  See https://misc.flogisoft.com/bash/tip_colors_and_formatting.
 
 **👉 Could you put variables for all/more/this color?**
 
-- No, this repo is meant to have the `.bashrc` I **personally** use.
+  No, this repo is meant to have the `.bashrc` I **personally** use.
 
   You are free to use all its contents as you wish, but I'm not really into making this too extensible/configurable and add plenty of unused stuff and checks in there for that, you can just download it and adjust it to your needs yourself.
