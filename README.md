@@ -106,7 +106,7 @@ FAQ & Troubleshooting
 
   Otherwise, see https://superuser.com/questions/320065/bashrc-not-sourced-in-iterm-mac-os-x.
 
-- **How I can change the colors/formatting you use?**
+- **How can I change the colors/formatting you use?**
 
   See https://misc.flogisoft.com/bash/tip_colors_and_formatting.
 
