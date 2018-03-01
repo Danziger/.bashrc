@@ -3,33 +3,54 @@
 
 The title says it all...
 
-`.bashrc` is there in a separated file.
 
-Same goes for `.bash_profile`, that just points to `.bashrc` like so:
-
-    if [ -f ~/.bashrc ]; then 
-        source ~/.bashrc 
-    fi
-
-Why? See https://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment
-
-The rest of the stuff is below:
-
-
-TO DO
+Files
 =====
 
-- [ ] *FT* - Upgrade to bash v4: https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx
+- `.bashrc`: Where the magic happens.
 
-- [ ] *DOC* - Document features.
+- `.bash_profile`: Just points to `.bashrc` like so:
 
-- [ ] *FT* - Do the same for maven `settings.xml`.
+      if [ -f ~/.bashrc ]; then 
+          source ~/.bashrc 
+      fi
 
-- [ ] *BUG* - Handle TODOs on the code.
+  Why? See https://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment
+
+- `.gitconfig-home`, `.gitconfig-work`, `.npmrc-home` and `.npmrc-work` are just placeholders that you should fill in with your own data. They are just there to provide some dummy data to the configuration switcher script so that it works out-of-the-box.
+
+
+Features
+========
+
+Colors
+------
+
+TODO
+
+
+Prompt
+------
+
+TODO
+
+
+Aliases
+-------
+
+TODO
+
+Configuration Switcher
+----------------------
+
+TODO
 
 
 Stuff
 =====
+
+As you can see in the title, this repo contains my `.bashrc` file and "stuff", which is basically a list of the programs I usually install on my computers.
+
 
 IDEs & Code Editors
 -------------------
@@ -56,13 +77,14 @@ Development
 - Python 2 & 3
 - Maven
 - MongoDB
+- Sourcetree
 
 
 Browsers
 --------
 
 - Chrome
-- Firefix
+- Firefox
 - Safari
 - IE Virtual Machines: https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/
 
@@ -91,6 +113,24 @@ Misc.
 - Spotify
 - TunnelBlick
 - Avast Security
+
+
+TO DO
+=====
+
+- [ ] *DOC* - Document features.
+
+- [ ] *FT* - Upgrade to bash v4: https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx
+
+- [ ] *BUG* - Handle TODOs on the code.
+
+- [ ] *BUG* - Move configuration swither to its own file.
+
+- [ ] *FT* - Do the same for maven `settings.xml`.
+
+- [ ] *FT* - Add a script to backup these config files just in case we are playing around with them.
+
+- [ ] *FT* - Add a script to print a palette of colors.
 
 
 FAQ & Troubleshooting
