@@ -4,22 +4,6 @@
 The title says it all...
 
 
-Files
-=====
-
-- `.bashrc`: Where the magic happens.
-
-- `.bash_profile`: Just points to `.bashrc` like so:
-
-      if [ -f ~/.bashrc ]; then 
-          source ~/.bashrc 
-      fi
-
-  Why? See https://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment
-
-- `.gitconfig-home`, `.gitconfig-work`, `.npmrc-home` and `.npmrc-work` are just placeholders that you should fill in with your own data. They are just there to provide some dummy data to the configuration switcher script so that it works out-of-the-box.
-
-
 Features
 ========
 
@@ -44,6 +28,22 @@ Configuration Switcher
 ----------------------
 
 TODO
+
+
+Files
+=====
+
+- `.bashrc`: Where the magic happens.
+
+- `.bash_profile`: Just points to `.bashrc` like so:
+
+      if [ -f ~/.bashrc ]; then 
+          source ~/.bashrc 
+      fi
+
+  Why? See https://stackoverflow.com/questions/415403/whats-the-difference-between-bashrc-bash-profile-and-environment
+
+- `.gitconfig-home`, `.gitconfig-work`, `.npmrc-home` and `.npmrc-work` are just placeholders that you should fill in with your own data. They are just there to provide some dummy data to the configuration switcher script so that it works out-of-the-box.
 
 
 Stuff
@@ -118,7 +118,7 @@ Misc.
 TO DO
 =====
 
-- [ ] *DOC* - Document features.
+- [ ] *DOC* - Document features and add screenshots.
 
 - [ ] *FT* - Upgrade to bash v4: https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx
 
