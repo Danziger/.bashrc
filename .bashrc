@@ -1,14 +1,15 @@
 # COLORS:
-# See http://shitwefoundout.com/wiki/Bash_color#High_Intensity
-# HI = High Intensity
-# B = Bold
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-WHITE='\033[1;37m'
-HIB_YELLOW='\033[1;93m'
-HIB_CYAN='\033[1;96m'
-HIB_BLUE='\033[1;94m'
-NC='\033[0m' # No Color
+# See https://misc.flogisoft.com/bash/tip_colors_and_formatting
+
+# Foreground
+RED='\033[38;1;31m'
+GREEN='\033[38;0;32m'
+WHITE='\033[38;1;37m'
+YELLOW='\033[38;5;11m'
+PURPLE='\033[38;5;57m'
+
+# Other
+RST='\033[0;m'
 
 
 # NVM stuff:
@@ -42,11 +43,6 @@ export LSCOLORS=GxFxCxDxBxegedabagacad
 export GREP_OPTIONS='--color=auto'
 
 
-# PROMPT:
-
-# export PS1="\W \[\033[38;5;11m\]➜\[$(tput sgr0)\]\[\033[38;5;15m\]  \[$(tput sgr0)\]"
-export PS1="${WHITE}\W \[${HTB_YELLOW}\]➜  ${NC}"
-
 # ALIASES:
 
 alias cls="clear"
@@ -62,11 +58,17 @@ alias brcr="source ~/.bashrc" # .bashrc re-source
 # out of this repo:
 source ~/.work.bash
 
+
 # Use echo $BASH_CONF to know which config are we using:
 export BASH_CONF=".bashrc"
 
 
-# CONFIG SWITCHER:
+# PROMPT:
+function set_prompt() {
+    export PS1="\[$1\]● \[${WHITE}\]\W \[${YELLOW}\]➜\[${RST}\]  "
+}
+
+# CONFIGS SWITCHER:
 # TODO: Move this to its own file.
 
 configs=("~/.npmrc" "~/.gitconfig")
@@ -75,7 +77,7 @@ whereami=~/.whereami
 
 # TODO: Add a color indicator on the cursor
 # declare -A config_colors
-# config_colors=([work]=$HIB_YELLOW [home]=$HIB_BLUE)
+# config_colors=([work]=$YELLOW [home]=$HIB_BLUE)
 
 # Switch location:
 function go() {
@@ -85,7 +87,7 @@ function go() {
     current=$1
     echo "$current" > $whereami
 
-    echo -e "\nGoing to ${WHITE}$current${NC}...\n"
+    echo -e "\nGoing to ${WHITE}$current${RST}...\n"
 
     for base in "${configs[@]}" ; do
         file="$base-$current"
@@ -99,28 +101,31 @@ function go() {
                 ln -s "`eval echo ${file//>}`" "`eval echo ${base//>}`"
             fi
 
-            echo -e "  ${GREEN}✓${NC} ${WHITE}$base${NC}  ➜  ${WHITE}$file${NC} ok."
+            echo -e "  ${GREEN}✓${RST}  ${WHITE}$base${RST}  ➜  ${WHITE}$file${RST} ok."
         else
             # Delete old symlink:
             rm $base
-            echo -e "  ${RED}×${NC} ${WHITE}$base${NC} as ${WHITE}$file${NC}  not found."
+            echo -e "  ${RED}×${RST}  ${WHITE}$base${RST} as ${WHITE}$file${RST}  not found."
         fi
     done
+
+    # TODO: This could be do with an associative array (bash v4)
+    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$RED")
 
     echo ""
 }
 
 # Print where you currently are and all the option you have available:
 function lost() {
-    echo -e "\nCurrently at ${WHITE}$current${NC}.\n"
+    echo -e "\nCurrently at ${WHITE}$current${RST}.\n"
 
     # TODO Print configurable files with their variations and possible locations.
 
     for base in "${configs[@]}" ; do
         if [ -f "`eval echo ${base//>}`" ] ; then
-            echo -e "  ${GREEN}✓${NC} ${WHITE}$base${NC} is there."
+            echo -e "  ${GREEN}✓${RST}  ${WHITE}$base${RST} is there."
         else
-            echo -e "  ${RED}×${NC} ${WHITE}$base${NC} not there."
+            echo -e "  ${RED}×${RST}  ${WHITE}$base${RST} not there."
         fi
     done
 
@@ -130,9 +135,7 @@ function lost() {
     email=$(git config user.email)
     npm=$(nvm current)
 
-    echo -e "\n  GIT $name - $email  |  NPM: $npm"
-
-    echo ""
+    echo -e "\nNPM: ${WHITE}$npm${RST}\nGIT: ${WHITE}$name${RST} <${WHITE}$email${RST}>\n"
 }
 
 function check() {
@@ -154,7 +157,7 @@ function check() {
 
 lc
 
-echo -e "Using ${WHITE}$BASH_CONF${NC}!"
+echo -e "Using ${WHITE}$BASH_CONF${RST}!"
 
 # Load the location from $file if it exists or create it (empty):
 if [ -f $whereami ] ; then
@@ -169,6 +172,8 @@ fi
 if [ -z $current ] || [ ! check ] ; then
     go $default
 else
-    # TODO: also execute lc here
+    # TODO: This could be do with an associative array (bash v4)
+    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$RED")
+
     lost
 fi
