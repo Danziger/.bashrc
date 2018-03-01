@@ -46,6 +46,30 @@ Files
 - `.gitconfig-home`, `.gitconfig-work`, `.npmrc-home` and `.npmrc-work` are just placeholders that you should fill in with your own data. They are just there to provide some dummy data to the configuration switcher script so that it works out-of-the-box.
 
 
+Installation
+============
+
+1. Check your have Bash 4 installed on your system:
+
+      bash --version
+
+  If you have an older version, you will have to update (not yet, for now it still works with version 3). See [here](http://clubmate.fi/upgrade-to-bash-4-in-mac-os-x/) for Mac.
+
+2. Download the files listed in the previous section in your home directory.
+
+2. Update them with your NPM and Git data.
+
+3. Restart the terminal / Open a new one / Run `source ~/.bashrc`.
+
+4. Enjoy.
+
+
+Configuration
+=============
+
+TODO
+
+
 Stuff
 =====
 
