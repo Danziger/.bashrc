@@ -100,17 +100,17 @@ Misc.
 FAQ & Troubleshooting
 =====================
 
-- 👉 **This is not doing anything.**
+- **This is not doing anything.**
 
   Have you created both a `.bashrc` and a `.bash_profile` files with the right content?
 
   Otherwise, see https://superuser.com/questions/320065/bashrc-not-sourced-in-iterm-mac-os-x.
 
-- 👉 **How I can change the colors/formatting you use?**
+- **How I can change the colors/formatting you use?**
 
   See https://misc.flogisoft.com/bash/tip_colors_and_formatting.
 
-- 👉 **Could you put variables for all/more/this color?**
+- **Could you put variables for all/more/this color?**
 
   No, this repo is meant to have the `.bashrc` I **personally** use.
 
