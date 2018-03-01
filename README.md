@@ -51,9 +51,9 @@ Installation
 
 1. Check your have Bash 4 installed on your system:
 
-      bash --version
+        bash --version
 
-  If you have an older version, you will have to update (not yet, for now it still works with version 3). See [here](http://clubmate.fi/upgrade-to-bash-4-in-mac-os-x/) for Mac.
+    If you have an older version, you will have to update (not yet, for now it still works with version 3). See [here](http://clubmate.fi/upgrade-to-bash-4-in-mac-os-x/) for Mac.
 
 2. Download the files listed in the previous section in your home directory.
 
