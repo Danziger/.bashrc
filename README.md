@@ -97,8 +97,8 @@ Misc.
 - Avast Security
 
 
-FAQ & Troubleshoting
-====================
+FAQ & Troubleshooting
+=====================
 
 **👉 This is not doing anything.**
 
