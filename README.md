@@ -21,11 +21,7 @@ TO DO
 
 - [ ] *FT* - Upgrade to bash v4: https://apple.stackexchange.com/questions/193411/update-bash-to-version-4-0-on-osx
 
-- [ ] *FT* - Highlight "work" (blue) or "home" (green) and mave also change prompt!
-
 - [ ] *DOC* - Document features.
-
-- [ ] *DOC* - Add LICENSE.
 
 - [ ] *FT* - Do the same for maven `settings.xml`.
 
