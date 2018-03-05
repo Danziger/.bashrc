@@ -157,6 +157,12 @@ TO DO
 
 - [ ] *FT* - Add a script to print a palette of colors.
 
+- [ ] *FT* - Add other useful aliases from Ubuntu's `.bashrc` file.
+
+- [ ] *FT* - Add aliases for drives (Windows).
+
+- [ ] *FT* - Add alias `goto directory` (with add and remove options) to manage a list of favourite directories and be able to quickly navigate to them.
+
 
 FAQ & Troubleshooting
 =====================
