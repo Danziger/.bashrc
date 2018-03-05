@@ -126,6 +126,7 @@ Productivity
 ------------
 
 - Wunderlist
+- Trello
 - Spectacle
 - f.lux
 
