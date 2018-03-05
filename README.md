@@ -161,7 +161,7 @@ TO DO
 
 - [ ] *FT* - Add aliases for drives (Windows).
 
-- [ ] *FT* - Add alias `goto directory` (with add and remove options) to manage a list of favourite directories and be able to quickly navigate to them.
+- [ ] *FT* - Manage favourite directories: https://stackoverflow.com/questions/7374534/directory-bookmarking-for-bash
 
 
 FAQ & Troubleshooting
