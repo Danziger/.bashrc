@@ -50,9 +50,15 @@ export GREP_OPTIONS='--color=auto'
 alias cls="clear"
 alias lc="clear && pwd && echo && ls && echo"
 alias edit="code" # or atom
+alias back="cd -"
 
 alias brce="edit ~/.bashrc" # .bashrc edit
 alias brcr="source ~/.bashrc" # .bashrc re-source
+
+
+# FAVOURITE FOLDERS (CD SHORTCUTS)
+export CDPATH=$CDPATH:~
+# TODO: Autocompletition not working :(
 
 
 # WORK:
