@@ -30,6 +30,18 @@ Configuration Switcher
 TODO
 
 
+Favourite Directories
+---------------------
+
+TODO
+
+
+Autocompletion
+--------------
+
+TODO
+
+
 Files
 =====
 
@@ -161,7 +173,7 @@ TO DO
 
 - [ ] *FT* - Add aliases for drives (Windows).
 
-- [ ] *FT* - Manage favourite directories: https://stackoverflow.com/questions/7374534/directory-bookmarking-for-bash
+- [ ] *FT* - Add completition for `CDPATH`: https://stenehall.se/article/autocomplete-from-any-folder-using-cdpath/
 
 
 FAQ & Troubleshooting
