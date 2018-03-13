@@ -27,6 +27,8 @@ export ANDROID_HOME=~/Library/Android/sdk
 export PATH=$PATH:~/Dev/apache-maven-3.5.2/bin
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
 # NATIVESCRIPT TNS COMPLETITION:
@@ -47,9 +49,9 @@ export GREP_OPTIONS='--color=auto'
 
 alias cls="clear"
 alias lc="clear && pwd && echo && ls && echo"
-alias edit="atom"
+alias edit="code" # or atom
 
-alias brce="atom ~/.bashrc" # .bashrc edit
+alias brce="edit ~/.bashrc" # .bashrc edit
 alias brcr="source ~/.bashrc" # .bashrc re-source
 
 
