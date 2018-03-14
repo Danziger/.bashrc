@@ -1,3 +1,4 @@
+# ----------------------------------------------------------------------------------------------------------------------------
 # STUFF FROM UBUNTU'S .BASHRC:
 # See https://gist.github.com/marioBonales/1637696
 
@@ -11,8 +12,7 @@ HISTFILESIZE=2000
 shopt -s histappend # Append to the history file, don't overwrite it
 
 # WINDOW SIZE:
-# check the window size after each command and, if necessary,
-# update the values of LINES and COLUMNS.
+# If set, Bash checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
 # enable programmable completion features (you don't need to enable
@@ -22,6 +22,8 @@ shopt -s checkwinsize
 #     . /etc/bash_completion
 # fi
 
+
+# ----------------------------------------------------------------------------------------------------------------------------
 # COLORS:
 # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
@@ -36,6 +38,7 @@ PURPLE='\033[38;5;57m'
 RST='\033[0;m'
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # NVM STUFF:
 
 export NVM_DIR="$HOME/.nvm"
@@ -43,6 +46,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # JAVA/MAVEN/ANDROID:
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Use -v X.Y in case you installed multiple versions.
@@ -55,6 +59,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # NATIVESCRIPT TNS COMPLETITION:
 
 if [ -f ~/.tnsrc ]; then
@@ -62,6 +67,7 @@ if [ -f ~/.tnsrc ]; then
 fi
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # COLORS:
 
 export CLICOLOR=1
@@ -69,6 +75,7 @@ export LSCOLORS=GxFxCxDxBxegedabagacad
 export GREP_OPTIONS='--color=auto'
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # ALIASES:
 # TODO: Put them into ~/.bash_aliases instead...
 
@@ -88,21 +95,25 @@ alias brce="edit ~/.bashrc" # .bashrc edit
 alias brcr="source ~/.bashrc" # .bashrc re-source
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # FAVOURITE FOLDERS (CD SHORTCUTS)
 export CDPATH=$CDPATH:~
 # TODO: Autocompletition not working :(
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # WORK:
 # For work-related stuff that might change occasionally and/or should be left
 # out of this repo:
 source ~/.work.bash
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # Use echo $BASH_CONF to know which config are we using:
 export BASH_CONF=".bashrc"
 
 
+# ----------------------------------------------------------------------------------------------------------------------------
 # PROMPT:
 function set_prompt() {
     export PS1="\[$1\]● \[${WHITE}\]\W \[${YELLOW}\]➜\[${RST}\]  "
