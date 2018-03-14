@@ -82,6 +82,23 @@ Configuration
 TODO
 
 
+Worth taking a look
+===================
+
+- https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
+- https://natelandau.com/my-mac-osx-bash_profile/
+- https://learn.adafruit.com/an-illustrated-guide-to-shell-magic-typing-less-and-doing-more/customize-your-bashrc
+- https://github.com/jleclanche/dotfiles
+- https://arstechnica.com/civis/viewtopic.php?t=1128061
+- https://serverfault.com/questions/3743/what-useful-things-can-one-add-to-ones-bashrc
+- https://www.quora.com/What-are-some-useful-bash_profile-and-bashrc-tips
+- https://www.linuxquestions.org/questions/linux-general-1/ultimate-prompt-and-bashrc-file-4175518169/
+- https://medium.com/@tzhenghao/a-guide-to-building-a-great-bashrc-23c52e466b1c
+- https://github.com/tzhenghao/dotfiles/blob/master/.oxalate_shell_rc
+- https://www.quora.com/What-is-the-best-Bash-prompt-for-Git
+- https://github.com/Bash-it/bash-it
+
+
 Stuff
 =====
 
