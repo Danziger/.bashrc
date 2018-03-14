@@ -192,6 +192,8 @@ TO DO
 
 - [ ] *FT* - Add completition for `CDPATH`: https://stenehall.se/article/autocomplete-from-any-folder-using-cdpath/
 
+- [ ] *FT* - Custom command not found hook: https://superuser.com/questions/787424/hook-into-command-not-found-handler-in-ubuntu
+
 
 FAQ & Troubleshooting
 =====================
