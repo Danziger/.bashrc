@@ -192,6 +192,7 @@ TO DO
 
 - [ ] *FT* - Add completition for `CDPATH`: https://stenehall.se/article/autocomplete-from-any-folder-using-cdpath/
 
+- [ ] *FT* - Customize other prompts: https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/
 
 FAQ & Troubleshooting
 =====================
@@ -240,6 +241,7 @@ BONUS - Pranks!
   
         stty -echo; echo -n "Password: "; read; echo; echo "Login failed."; stty echo
         ----------                        ----                              ---------
-        ☝ Stop the display of the         ☝ Read one line from STDIN.       ☝ Resume echoing of the characters.
-        characters typed.                                     
+        ☝ Stop displaying characters     ☝ Read one line from STDIN.       ☝ Resume echoing
+          typed.                                                             characters.
+                                             
       
