@@ -192,8 +192,6 @@ TO DO
 
 - [ ] *FT* - Add completition for `CDPATH`: https://stenehall.se/article/autocomplete-from-any-folder-using-cdpath/
 
-- [ ] *FT* - Custom command not found hook: https://superuser.com/questions/787424/hook-into-command-not-found-handler-in-ubuntu
-
 
 FAQ & Troubleshooting
 =====================
@@ -213,3 +211,35 @@ FAQ & Troubleshooting
   No, this repo is meant to have the `.bashrc` I **personally** use.
 
   You are free to use all its contents as you wish, but I'm not really into making this too extensible/configurable and add plenty of unused stuff and checks in there for that, you can just download it and adjust it to your needs yourself.
+
+
+BONUS - Pranks!
+===============
+
+- Before each command, generate a random number in the interal [0, 32767]; if it is below 2000, close the terminal:
+
+      trap '[ "$RANDOM" -le 2000 ] && exit' DEBUG
+    
+- Move files instead of copying them when using `cp`:
+
+      alias cp=mv
+      
+- Will make `touch` do nothing instead of creating a new file. Watch out, as `touch` has other uses and someone might end up deleting an important file by mistake!
+
+      alias touch=rm -f
+    
+- Windows-like prompt:
+
+      export PS1='C:\\>'
+      
+- Keep someone busy traying to log in:
+
+       export PS1="Login: "
+  
+  From the command not found hook, execute:
+  
+        stty -echo; echo -n "Password: "; read; echo; echo "Login failed."; stty echo
+        ----------                        ----                              ---------
+        ☝ Stop the display of the         ☝ Read one line from STDIN.       ☝ Resume echoing of the characters.
+        characters typed.                                     
+      
