@@ -98,6 +98,10 @@ Worth taking a look
 - https://www.quora.com/What-is-the-best-Bash-prompt-for-Git
 - https://github.com/Bash-it/bash-it
 - https://github.com/mathiasbynens/dotfiles
+- https://github.com/paulirish/dotfiles
+- https://github.com/alrra/dotfiles/
+- https://github.com/paulmillr/dotfiles
+- https://github.com/gf3/dotfiles
 
 
 Stuff
