@@ -97,6 +97,7 @@ Worth taking a look
 - https://github.com/tzhenghao/dotfiles/blob/master/.oxalate_shell_rc
 - https://www.quora.com/What-is-the-best-Bash-prompt-for-Git
 - https://github.com/Bash-it/bash-it
+- https://github.com/mathiasbynens/dotfiles
 
 
 Stuff
