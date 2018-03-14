@@ -1,3 +1,27 @@
+# STUFF FROM UBUNTU'S .BASHRC:
+# See https://gist.github.com/marioBonales/1637696
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# HISTORY:
+HISTCONTROL=ignoreboth # Same as ignoredups:ignorespace
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend # Append to the history file, don't overwrite it
+
+# WINDOW SIZE:
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+# if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+#     . /etc/bash_completion
+# fi
+
 # COLORS:
 # See https://misc.flogisoft.com/bash/tip_colors_and_formatting
 
@@ -12,7 +36,7 @@ PURPLE='\033[38;5;57m'
 RST='\033[0;m'
 
 
-# NVM stuff:
+# NVM STUFF:
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # Add --no-use if startup is slow
@@ -46,11 +70,19 @@ export GREP_OPTIONS='--color=auto'
 
 
 # ALIASES:
+# TODO: Put them into ~/.bash_aliases instead...
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
 
 alias cls="clear"
 alias lc="clear && pwd && echo && ls && echo"
 alias edit="code" # or atom
 alias back="cd -"
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 alias brce="edit ~/.bashrc" # .bashrc edit
 alias brcr="source ~/.bashrc" # .bashrc re-source
