@@ -104,8 +104,8 @@ Worth taking a look
 - https://github.com/gf3/dotfiles
 
 
-Stuff
-=====
+MISC. - MY FAVOURITE APPLICATIONS
+=================================
 
 As you can see in the title, this repo contains my `.bashrc` file and "stuff", which is basically a list of the programs I usually install on my computers.
 
@@ -199,6 +199,9 @@ TO DO
 
 - [ ] *FT* - Customize other prompts: https://www.thegeekstuff.com/2008/09/bash-shell-take-control-of-ps1-ps2-ps3-ps4-and-prompt_command/
 
+- [ ] *FT* - Emoji prompt?
+
+
 FAQ & Troubleshooting
 =====================
 
@@ -248,5 +251,3 @@ BONUS - Pranks!
         ----------                        ----                              ---------
         ☝ Stop displaying characters     ☝ Read one line from STDIN.       ☝ Resume echoing
           typed.                                                             characters.
-                                             
-      
