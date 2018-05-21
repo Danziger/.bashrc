@@ -128,6 +128,8 @@ Development
 -----------
 
 - iTerm
+- Bash on Ubuntu on Windows
+- tmux
 - VirtualBox
 - Java SDK
 - Homebrew
