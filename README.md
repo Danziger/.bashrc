@@ -113,8 +113,7 @@ As you can see in the title, this repo contains my `.bashrc` file and "stuff", w
 IDEs & Code Editors
 -------------------
 
-- Atom
-- Visual Studio Code
+- Visual Studio Code (or Atom)
 - Visual Studio
 - JetBrains Toolbox
 - WebStorm
