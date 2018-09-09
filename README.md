@@ -85,6 +85,7 @@ TODO
 Worth taking a look
 ===================
 
+- https://github.com/sharkdp/bat
 - https://www.cyberciti.biz/tips/bash-aliases-mac-centos-linux-unix.html
 - https://natelandau.com/my-mac-osx-bash_profile/
 - https://learn.adafruit.com/an-illustrated-guide-to-shell-magic-typing-less-and-doing-more/customize-your-bashrc
