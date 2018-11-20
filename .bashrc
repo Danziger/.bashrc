@@ -39,6 +39,7 @@ GREEN='\033[38;0;32m'
 WHITE='\033[38;1;37m'
 YELLOW='\033[38;5;11m'
 PURPLE='\033[38;5;57m'
+DARK_CYAN='\033[38;5;6m'
 
 # Other
 RST='\033[0;m'
@@ -55,14 +56,14 @@ export NVM_DIR="$HOME/.nvm"
 # ----------------------------------------------------------------------------------------------------------------------------
 # JAVA/MAVEN/ANDROID:
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Use -v X.Y in case you installed multiple versions.
-export ANDROID_HOME=~/Library/Android/sdk
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8` # Use -v X.Y in case you installed multiple versions.
+# export ANDROID_HOME=~/Library/Android/sdk
 
-export PATH=$PATH:~/Dev/apache-maven-3.5.2/bin
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+# export PATH=$PATH:~/Dev/apache-maven-3.5.2/bin
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
+# export PATH=$PATH:$ANDROID_HOME/tools
+# export PATH=$PATH:"/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
 
 # ----------------------------------------------------------------------------------------------------------------------------
@@ -75,61 +76,63 @@ fi
 
 # ----------------------------------------------------------------------------------------------------------------------------
 # COLORS:
+# See https://geoff.greer.fm/lscolors/
 
 export CLICOLOR=1
-export LSCOLORS=GxFxCxDxBxegedabagacad
-export GREP_OPTIONS='--color=auto'
+# export LSCOLORS=GxFxCxDxBxegedabagacad # Old value used on Mac
+export LSCOLORS=GxFxdxCxHxAdadabAbAggx
+export LS_COLORS="di=1;36:ln=1;35:so=33:pi=1;32:ex=1;37:bd=1;30;43:cd=30;43:su=30;41:sg=1;30;41:tw=1;30;46:ow=36"
+# export GREP_OPTIONS='--color=auto' # Deprecated
 
 
 # ----------------------------------------------------------------------------------------------------------------------------
-# ALIASES:
-# TODO: Put them into ~/.bash_aliases instead...
+# REPOSITORY SCRIPTS:
+# All those inside src.
+# echo "hi"
 
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+SRC="$( cd "$( dirname "$( realpath "${BASH_SOURCE[0]}" )" )" >/dev/null && pwd )/src"
+SCRIPTS="$( cd $SRC >/dev/null && ls -A )"
+
+for script in $SCRIPTS ; do
+    path="${SRC}/${script}"
+
+    # echo "Importing ${script}..."
+
+    if [ -f "$path" ]; then
+        source "$path"
+    fi
+done
+
+# echo "hi"
+
+
+# ----------------------------------------------------------------------------------------------------------------------------
+# WORK-SPECIFIC SCRITPS:
+# For work-specific scripts that should be left out of this repo.
+
+if [ -f ~/.work.bash ]; then
+    source ~/.work.bash
 fi
-
-alias cls="clear"
-alias lc="clear && pwd && echo && ls && echo"
-alias edit="code" # or atom
-alias back="cd -"
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias brce="edit ~/.bashrc" # .bashrc edit
-alias brcr="source ~/.bashrc" # .bashrc re-source
 
 
 # ----------------------------------------------------------------------------------------------------------------------------
 # FAVOURITE FOLDERS (CD SHORTCUTS)
+
 export CDPATH=$CDPATH:~
 # TODO: Autocompletition not working :(
 
 
-# ----------------------------------------------------------------------------------------------------------------------------
-# WORK:
-# For work-related stuff that might change occasionally and/or should be left
-# out of this repo:
-source ~/.work.bash
+
 
 
 # ----------------------------------------------------------------------------------------------------------------------------
 # Use echo $BASH_CONF to know which config are we using:
+
 export BASH_CONF=".bashrc"
 
 
-# ----------------------------------------------------------------------------------------------------------------------------
-# PROMPT:
-function set_prompt() {
-    export PS1="\[$1\]● \[${WHITE}\]\W \[${YELLOW}\]➜\[${RST}\]  "
-}
-
-# CONFIGS SWITCHER:
-# TODO: Move this to its own file.
-
 configs=("~/.npmrc" "~/.gitconfig")
-default="work"
+default="home"
 whereami=~/.whereami
 
 # TODO: Add a color indicator on the cursor
@@ -151,7 +154,7 @@ function go() {
 
         if [ -f "`eval echo ${file//>}`" ] ; then
             if [ -L "`eval echo ${base//>}`" ] ; then
-                # If the symlink already exists, update iy:
+                # If the symlink already exists, update it:
                 ln -sf "`eval echo ${file//>}`" "`eval echo ${base//>}`"
             else
                 # Otherwise, create a new one:
@@ -167,7 +170,7 @@ function go() {
     done
 
     # TODO: This could be do with an associative array (bash v4)
-    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$RED")
+    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$DARK_CYAN")
 
     echo ""
 }
@@ -230,7 +233,8 @@ if [ -z $current ] || [ ! check ] ; then
     go $default
 else
     # TODO: This could be do with an associative array (bash v4)
-    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$RED")
+    # TODO: Duplicated line
+    set_prompt $([ "$current" == work ] && echo "$PURPLE" || echo "$DARK_CYAN")
 
     lost
 fi
