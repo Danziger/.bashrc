@@ -1,0 +1,138 @@
+#!/usr/bin/python3
+
+import sys
+import re
+import subprocess
+
+
+PROJECT_IDS = ['SLO']
+BRANCH_TYPES = ['feature', 'bug', 'hot']
+
+REGEX_PROJECT_IDS = '|'.join(PROJECT_IDS)
+REGEX_BRANCH_TYPES = '|'.join(BRANCH_TYPES)
+
+# Should contain a capturing group to extract the reference:
+REGEX_BRANCH = '^(?:{})/((?:{})-[\d]{{1,5}})-[a-z]+(?:-[a-z]+)*$'.format(REGEX_BRANCH_TYPES, REGEX_PROJECT_IDS)
+
+# Should contain a capturing group to extract the reference (note the dot at the end
+# is optional as this script will add it automatically for us):
+REGEX_MESSAGE = '^((?:{})-[\d]{{1,5}}): .+\.?$'.format(REGEX_PROJECT_IDS)
+
+# No capturing group. Just checking for the bare minimum:
+REGEX_BASIC_MESSAGE = '^.+$'
+
+# These branch names are not validated with this same rules (permissions should be configured
+# on the server if you want to prevent pushing to any of these):
+BRANCH_EXCEPTIONS = ['development', 'develop', 'dev', 'staging', 'sta', 'master', 'production']
+
+
+def getBranchName():
+  return subprocess.check_output(['git', 'rev-parse', '--abbrev-ref', 'HEAD']).decode('ascii').strip()
+
+def getBranchRef(branch):
+    match = re.findall(REGEX_BRANCH, branch)
+
+    return match[0] if match and match[0] else None
+
+def getMessageRef(message):
+    match = re.findall(REGEX_MESSAGE, message)
+
+    return match[0] if match and match[0] else None
+
+def isCommitValid(message):
+    isValid = True
+    messageOverride = None
+    branch = getBranchName()
+    isException = branch in BRANCH_EXCEPTIONS
+
+    if isException:
+        print('\nWARNING: You might not have permissions to push to `{}`.'.format(branch))
+
+        if not message.startswith('HOT: '):
+            print('\n         Also, you might consider prefixing the commit message with `HOT:`')
+
+        print('\n         Use `git reset HEAD~` to undo this commit, create a proper branch and/or commit message and commit the changes again.')
+        print('')
+
+        return True
+
+    branchRef = getBranchRef(branch)
+    messageRef = getMessageRef(message)
+
+    if not re.match(REGEX_BRANCH, branch):
+        isValid = False
+        print('\nERROR: Invalid branch name:')
+        print('\n       It should match {}'.format(REGEX_BRANCH))
+        print('\n       Example: {}/{}-42-whatever-this-is'.format(
+            BRANCH_TYPES[0],
+            PROJECT_IDS[0]
+        ))
+
+    if not re.match(REGEX_MESSAGE, message):
+        if not re.match(REGEX_BASIC_MESSAGE, message):
+            # So wrong there's no way to fix it automatically:
+            isValid = False
+            print('\nERROR: Super invalid commit message (shame on you):')
+            print('\n       It should match `{}`'.format(REGEX_MESSAGE))
+            print('\n       Example: {}: Your commit message (with a dot at the end).'.format(
+                branchRef if branchRef else '{}-42'.format(PROJECT_IDS[0])
+            ))
+        else:
+            # Let's make a guess about the branch type and reference:
+            messageOverride = 'feature/{}: {}'.format(branchRef, message)
+
+            if not messageOverride.strip().endswith('.'):
+                # The dot might be present in the original (but mostly incorrect) message:
+                 messageOverride = messageOverride.strip() + '.\n'
+
+            print('\nWARNING: Mostly invalid commit message:')
+            print('\n         It should match `{}`'.format(REGEX_MESSAGE))
+            print('\n         We have tried to fix it for you (no need to thank us):')
+            print('\n         {}'.format(messageOverride))
+            print('         Use `git reset HEAD~` to undo this commit if we fucked up.')
+    elif isValid and not message.strip().endswith('.'):
+        # The dot is optional, so both branch & message might be valid and still miss it:
+        messageOverride = message.strip() + '.\n'
+
+        print('\nWARNING: You forgot the dot at the end of your commit message:')
+        print('\n         We have added it for you (you are welcome):')
+        print('         {}'.format(messageOverride))
+
+    if not messageOverride and isValid and branchRef != messageRef:
+        isValid = False
+        print('\nERROR: Branch ({}) and commit ({}) references do not match.'.format(
+            branchRef,
+            messageRef
+        ))
+
+    if not isValid or messageOverride:
+        print('')
+
+    return (isValid, messageOverride)
+
+
+def main():
+    messageFile = sys.argv[1]
+
+    try:
+        file = open(messageFile, 'r')
+        message = file.read()
+    finally:
+        file.close()
+
+    isValid, messageOverride = isCommitValid(message)
+
+    if messageOverride:
+        try:
+            file = open(messageFile, 'w')
+            message = file.write(messageOverride)
+        except:
+            isValid = False
+        finally:
+            file.close()
+
+    sys.exit(0 if isValid else 1)
+
+
+if __name__ == "__main__":
+    main()
