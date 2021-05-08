@@ -79,6 +79,20 @@ Installation
 Configuration
 =============
 
+On the new "Windows Terminal" press `Ctrl` + `,` to open the settings, then click "Open JSON file". 
+
+Locate the "Ubuntu" entry under `profiles` and add an `startingDirectory` property:
+
+
+      {
+            "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+            "hidden": false,
+            "name": "Ubuntu",
+            "source": "Windows.Terminal.Wsl",
+            "startingDirectory": "//wsl$/<DISTRO_DIR = ubuntu>/home/<USERNAME>/"
+      },
+
+
 TODO
 
 
