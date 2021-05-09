@@ -92,6 +92,7 @@ Locate the "Ubuntu" entry under `profiles` and add an `startingDirectory` proper
             "startingDirectory": "//wsl$/<DISTRO_DIR = ubuntu>/home/<USERNAME>/"
       },
 
+Also, you can pin `\\wsl$\ubuntu` in Explorer for quick access to your Linux files from Windows.
 
 TODO
 
